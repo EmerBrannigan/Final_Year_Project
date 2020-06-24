@@ -1,0 +1,91 @@
+﻿@model Lesson
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-controller="Lesson" asp-action="Index">Lessons</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Details
+        </li>
+    </ol>
+</nav>
+
+<h3 class="mt=4 mb-4">Lesson Details</h3>
+
+
+<dl class="row">
+    <dt class="col-sm-3">Id</dt>
+    <dd class="col-sm-9">@Model.Id</dd>
+
+    <dt class="col-sm-3">Date/Time</dt>
+    <dd class="col-sm-9">@Model.DateAndTime.ToShortDateString()</dd>
+
+    <dt class="col-sm-3">Duration</dt>
+    <dd class="col-sm-9">@Model.Duration</dd>
+
+    <dt class="col-sm-3">Type</dt>
+    <dd class="col-sm-9">@Model.LessonType</dd>
+
+    <dt class="col-sm-3">Lesson Plan</dt>
+    <dd class="col-sm-9">@Model.LessonPlan</dd>
+
+    <dt class="col-sm-3">Instructor</dt>
+    <dd class="col-sm-9">@Model.Instructor.FullName</dd>
+
+</dl>
+
+<div class="mt-4 mb-4">
+    <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-secondary btn-sm">Edit</a>
+    <a asp-action="Index" class="btn btn-link">Lesson List</a>
+</div>
+
+
+<!-- Lesson Attendance List -->
+
+<div class="row mt-4">
+    <h4>Clients</h4>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Attendance Status</td>
+                <td>Horse</td>
+                <td>Notes</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var a in Model.Attendances)
+            {
+                <tr>
+                    <td>@a.Id</td>
+                    <td>@a.Client.FullName</td>
+                    <td>@a.AttendanceStatus</td>
+                    <td>@a.Horse.HorseName</td>
+                    <td style="width:50%">@a.Notes</td>
+                    <td>
+                        <!-- these actions need implemented in the Lesson Controller -->
+                        <!-- this would infer that lessons control Attendance -->
+                        <a asp-action="EditAttendance" asp-route-id=@a.Id>Edit</a> |
+                        <a asp-action="DeleteAttendance" class="mr-2">Delete</a> |
+                        <a asp-action="SendMessage" asproute-id=" @a.ClientId">Message</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+    <!-- Adding a new Client -->
+    <a asp-action="CreateAttendance" class="mr-2">Add Client To Lesson</a>
+
+
+</div>

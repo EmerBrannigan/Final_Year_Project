@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TullymurrySystem.Data.Models.Horse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Horse Information</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Horse Name
+            </th>
+            <th>
+                Date Of Birth
+            </th>
+            <th>
+                Breed
+            </th>
+            <th>
+                Horse Level
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.HorseName
+            </td>
+            <td>
+                @item.DateOfBirth
+            </td>
+            <td>
+                @item.Breed
+            </td>
+            <td>
+                @item.HorseLevel
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

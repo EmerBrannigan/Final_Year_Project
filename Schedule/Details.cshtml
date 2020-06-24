@@ -1,0 +1,42 @@
+﻿@model TullymurrySystem.Data.Models.Schedule
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-controller="Schedule" asp-action="Index">Schedules</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Details
+            </li>
+        </ol>
+    </nav>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Schedule Type</dt>
+        <dd class="col-sm-9">@Model.ScheduleType</dd>
+
+        <dt class="col-sm-3">Date Of Event</dt>
+        <dd class="col-sm-9">@Model.DateOfEvent.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Horse</dt>
+        <dd class="col-sm-9">@Model.Horse.HorseName</dd>
+
+        <dt class="col-sm-3">Supplier</dt>
+        <dd class="col-sm-9">@Model.Supplier.SupplierName</dd>
+    </dl>
+</div>
+<div class="mt-4 mb-4">
+    <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-secondary btn-sm">Edit</a>
+    <a asp-action="Index" class="btn btn-link">Schedule List</a>
+</div>

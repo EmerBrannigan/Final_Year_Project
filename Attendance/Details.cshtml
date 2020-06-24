@@ -1,0 +1,30 @@
+﻿@model TullymurrySystem.Data.Models.Attendance
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Attendance</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+        <dt class="col-sm-3">Client</dt>
+        <dd class="col-sm-9">@Model.Client.FullName</dd>
+        <dt class="col-sm-3">Lesson</dt>
+        <dd class="col-sm-9">@Model.LessonId</dd>
+        <dt class="col-sm-3">Horse</dt>
+        <dd class="col-sm-9">@Model.Horse.HorseName</dd>
+        <dt class="col-sm-3">Attendance Status</dt>
+        <dd class="col-sm-9">@Model.AttendanceStatus</dd>
+        <dt class="col-sm-3">Notes</dt>
+        <dd class="col-sm-9">@Model.Notes</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-secondary btn-sm">Edit</a>
+    <a asp-action="Index" class="btn btn-link">Attendance List</a>
+</div>

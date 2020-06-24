@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Lesson>
+
+<h2>Lesson Information</h2>
+
+
+<div class="mt-4 mb-4">
+    <a asp-action="Create">Create New</a>
+</div>
+
+<div class="mt-4 mb-4">
+    <a asp-action="AttendanceIndex" class="btn btn-link">View All Attendances</a>
+</div>
+
+<form asp-action="Index" method="get">
+    <label>Search By Instructor Surname</label>
+    <input type="text" name="search" />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Date/Time
+            </th>
+            <th>
+                Lesson Type
+            </th>
+            <th>
+                Instructor
+            </th>
+            <th>
+                Instructor
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.DateAndTime
+            </td>
+            <td>
+                @item.LessonType
+            </td>
+            <td>
+                @item.Instructor.FullName
+            </td>
+            <td>
+                <a asp-action="Edit"    asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete"  asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

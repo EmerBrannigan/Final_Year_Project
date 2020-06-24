@@ -1,0 +1,31 @@
+﻿@model TullymurrySystem.Data.Models.Horse
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Horse</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Horse Name</dt>
+        <dd class="col-sm-9">@Model.HorseName</dd>
+
+        <dt class="col-sm-3">Date Of Birth</dt>
+        <dd class="col-sm-9">@Model.DateOfBirth</dd>
+
+        <dt class="col-sm-3">Breed</dt>
+        <dd class="col-sm-9">@Model.Breed</dd>
+
+        <dt class="col-sm-3">Horse Level</dt>
+        <dd class="col-sm-9">@Model.HorseLevel</dd>
+    </dl>
+    
+    <form asp-action="ConfirmDelete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

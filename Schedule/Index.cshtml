@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Schedule>
+
+
+<h1>Schedule Information</h1>
+
+<div class="mt-4 mb-4">
+    <a asp-action="Create">Create New</a>
+</div>
+
+<form asp-action="Index" method="get">
+    <label>Search Events By Scheule Type</label>
+    <input type="text" name="search" />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Schedule Type
+            </th>
+            <th>
+                Date Of Event
+            </th>
+            <th>
+                Horse
+            </th>
+            <th>
+                Supplier
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.ScheduleType
+            </td>
+            <td>
+                @item.DateOfEvent
+            </td>
+            <td>
+                @item.Horse.HorseName
+            </td>
+            <td>
+                @item.Supplier.SupplierName
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

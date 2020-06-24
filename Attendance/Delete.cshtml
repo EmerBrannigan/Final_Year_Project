@@ -1,0 +1,26 @@
+﻿@model TullymurrySystem.Data.Models.Attendance
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Attendance</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+        <dt class="col-sm-3">Attendance Status</dt>
+        <dd class="col-sm-9">@Model.AttendanceStatus</dd>
+        <dt class="col-sm-3">Notes</dt>
+        <dd class="col-sm-9">@Model.Notes</dd>
+    </dl>
+    
+    <form asp-action="ConfirmDelete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-controller="Lesson" asp-action="Details ">Back to List</a>
+    </form>
+</div>

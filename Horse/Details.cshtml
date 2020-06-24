@@ -1,0 +1,28 @@
+﻿@model Horse
+
+<h1>Details</h1>
+
+<div>
+    <h4>Horse</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Horse Name</dt>
+        <dd class="col-sm-9">@Model.HorseName</dd>
+
+        <dt class="col-sm-3">Date Of birth</dt>
+        <dd class="col-sm-9">@Model.DateOfBirth</dd>
+
+        <dt class="col-sm-3">Breed</dt>
+        <dd class="col-sm-9">@Model.Breed</dd>
+
+        <dt class="col-sm-3">Horse Level</dt>
+        <dd class="col-sm-9">@Model.HorseLevel</dd>
+    </dl>
+</div>
+<div class="mt-4 mb-4">
+    <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-secondary btn-sm">Edit</a>
+    <a asp-action="Index" class="btn btn-link">Horse List</a>
+</div>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TullymurrySystem.Data.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Client Information</h1>
+
+<div class="mt-4 mb-4">
+    <a asp-action="Create">Create New</a>
+</div>
+
+<form asp-action="Index" method="get">
+    <label>Search By Client Surname</label>
+    <input type="text" name="search" />
+    <input type="submit" value="Search" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Date Of Birth
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Telephone Number
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Surname
+            </td>
+            <td>
+                @item.FirstName
+            </td>
+            <td>
+                @item.DateOfBirth
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @item.TelNum
+            </td>
+            <td>
+                @item.FullName
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-action="Attendance Record" asp-route-id="@item.Id">Attendance Record</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
